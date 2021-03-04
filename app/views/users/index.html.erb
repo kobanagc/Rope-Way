@@ -6,7 +6,7 @@
 </div>
 <div class="main-contents">
   <% User.where.not(id: current_user.id).each do |user| %>
-    <%= link_to "/users/#{user.id}" do %>
+    <%= link_to "/users/#{user.id}", class: "user-profile-link" do %>
       <div class="user-profiles">
         <div class="profile-image">
           <% if user.image.attached? %>
@@ -26,7 +26,7 @@
             年齢：<%= user.age %>歳
           </div>
           <div class="user-likes">
-            <%# <span class="fa fa-heart like-btn-unlike"></span>：<%= Like.where(to_user_id: user.id).count %> %>
+            <span class="fa fa-heart like-btn-unlike"></span>：<%= Like.where(to_user_id: user.id).count %>
           </div>
         </div>
       </div>
