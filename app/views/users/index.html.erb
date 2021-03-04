@@ -1,0 +1,36 @@
+<%= render "shared/header" %>
+<div class="title-contents">
+    <h2 class='service-concept'>
+      理想のパートナー探し
+    </h2>
+</div>
+<div class="main-contents">
+  <% User.where.not(id: current_user.id).each do |user| %>
+    <%= link_to "/users/#{user.id}" do %>
+      <div class="user-profiles">
+        <div class="profile-image">
+          <% if user.image.attached? %>
+            <%= image_tag user.image, class: "icon-img" %>
+          <% else %>
+            <%= image_tag "default-image.png", class: "icon-img" %>
+          <% end %>
+        </div>
+        <div class="profile-details">
+          <div class="user-name">
+            名前：<%= user.name %>
+          </div>
+          <div class="user-sex">
+            性別：<%= user.sex.name %>
+          </div>
+          <div class="user-age">
+            年齢：<%= user.age %>歳
+          </div>
+          <div class="user-likes">
+            <%# <span class="fa fa-heart like-btn-unlike"></span>：<%= Like.where(to_user_id: user.id).count %> %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+<%= render "shared/footer" %>

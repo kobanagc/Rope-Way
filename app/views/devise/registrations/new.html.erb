@@ -1,0 +1,63 @@
+<div class="contents row">
+  <div class="container">
+    <div class="login-registration">
+      <h2>
+        <%= link_to "ログイン", new_user_session_path %>
+      </h2>
+      <h2>新規登録</h2>
+    </div>
+    <%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
+      <%= devise_error_messages! %>
+
+      <div class="field">
+        <%= f.label :name %> <em>(10文字以内)</em><br />
+        <%= f.text_field :name, autofocus: true, maxlength: "10" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :phone %><br />
+        <%= f.text_field :phone %>
+      </div>
+
+      <div class="field">
+        <%= f.label :email %><br />
+        <%= f.email_field :email %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password %>
+        <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %>文字以内)</em>
+        <% end %><br />
+        <%= f.password_field :password, autocomplete: "off" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password_confirmation %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "off" %>
+      </div>
+
+      <div class="field">
+        性別
+      </div>
+      <%= f.collection_select(:sex_id, Sex.all, :id, :name, {}, {class:"select-box", id:"profile-sex"}) %>
+      <div class="field">
+        年齢
+      </div>
+      <%= f.text_field :age, class:"age-input", id:"age" %><span>歳</span>
+      <div class="field">
+        都道府県
+      </div>
+      <%= f.collection_select(:residence_id, Residence.all, :id, :name, {}, {class:"select-box", id:"profile-residence"}) %>
+      <div class="field">
+        属性
+      </div>
+      <%= f.collection_select(:rope_patron_id, RopePatron.all, :id, :name, {}, {class:"select-box", id:"profile-rope-patron"}) %>
+      
+
+      <div class="actions">
+        <%= f.submit "Sign up" %>
+      </div>
+    <% end %>
+  </div>
+</div>
