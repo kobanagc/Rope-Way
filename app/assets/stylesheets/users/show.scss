@@ -1,0 +1,45 @@
+.like-btn{
+  color :#8899a6;
+}
+
+.like-btn-unlike{
+  color: #ff2581;
+}
+
+
+.profile-images{
+  height: 700px;
+  width: 1000px;
+  float: center;
+  margin: 30px auto 0;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+
+.profile-img{
+  height: 300px;
+  width: 300px;
+  border: black solid 1px;
+  margin-right: 30px;
+}
+
+.item-img{
+  height: 300px;
+  width: 300px;
+}
+
+.profile-items{
+  height: auto;
+  width: 1000px;
+  float: center;
+  margin: auto;
+  font-size: 20px;
+  border: black solid 1px;
+}
+
+.profile-item{
+  border: black solid 1px;
+  padding: 10px 0 10px 5px;
+}

@@ -1,0 +1,42 @@
+
+/* 以下ヘッダー */
+
+
+.header{
+  float: center;
+  margin: 0 auto;
+  background-color:rgb(178, 221, 91);
+  height: 60px;
+  width: 1000px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.RopeWay-icon{
+  height: 60px;
+  width: 150px;
+}
+
+.menu-list{
+  display: flex;
+  align-items: center;
+  font-size: larger;
+}
+
+.menu{
+  margin-left: 40px;
+  margin-right: 10px;
+}
+
+/* ここまでヘッダー */
+
+/* 以下フッター */
+footer{
+  background-color: darkgray;
+  width: 1000px;
+  height: 100px;
+  margin: 30px auto 0;
+}
+
+
+/* ここまでフッター */
