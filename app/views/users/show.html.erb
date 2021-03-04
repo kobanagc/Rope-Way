@@ -38,20 +38,26 @@
       属性：<%= @user.rope_patron.name %>
     </div>
  
-    <%# <% if Like.find_by(by_user_id:current_user.id,to_user_id:@user.id)%>
-      <%# <%= link_to("/likes/#{@user.id}/destroy", method: :post) do %> 
-        <%# <span class="fa fa-heart like-btn-unlike"></span> %>
-      <%# <% end %> 
-    <%# <% else %> 
-      <%# <%= link_to("likes/#{@user.id}/create", method: :post) do %> 
-        <%# <span class="fa fa-heart like-btn"></span> %>
-      <%# <% end %> 
-    <%# <% end %> 
-    <%# <%= @likes_count %> 
+    <% if current_user.id == @user.id%>
+      <span class="fa fa-heart like-btn-unlike"></span>
+    <% else %>
+      <% if Like.find_by(by_user_id:current_user.id,to_user_id:@user.id)%>
+        <%= link_to("/users/likes/#{@user.id}/destroy", method: :post) do %>
+          <span class="fa fa-heart like-btn-unlike"></span>
+        <% end %>
+      <% else %> 
+        <%= link_to("/users/likes/#{@user.id}/create", method: :post) do %> 
+          <span class="fa fa-heart like-btn"></span>
+        <% end %> 
+      <% end %>
+    <% end %>
+    <%= @likes_count %>
   </div>
-  <% if current_user.id == @user.id %>
-    <%= link_to "プロフィール編集", edit_user_path %>
-    <%= link_to "アカウント削除", user_path(@user.id), method: :delete, data: { confirm: '本当にアカウントを削除しますか？' } %>
-  <% end %>
+  <div class="profile-edit-destroy">
+    <% if current_user.id == @user.id %>
+      <%= link_to "プロフィール編集", edit_user_path %>
+      <%= link_to "アカウント削除", user_path(@user.id), method: :delete, data: { confirm: '本当にアカウントを削除しますか？' } %>
+    <% end %>
+  </div>
 </div>
 <%= render "shared/footer" %>

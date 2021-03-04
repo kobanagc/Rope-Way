@@ -8,7 +8,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    # @likes_count = Like.where(to_user_id: @user.id).count
+    @likes_count = Like.where(to_user_id: @user.id).count
   end
 
   def edit
