@@ -4,4 +4,7 @@ Rails.application.routes.draw do
   resources :users
   post "users/likes/:id/create" => "likes#create"
   post "users/likes/:id/destroy" => "likes#destroy"
+  resources :rooms do
+    resources :messages
+  end
 end

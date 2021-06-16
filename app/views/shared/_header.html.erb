@@ -3,7 +3,9 @@
   <div class="menu-list">
     <div class="menu">RopeWayとは</div>
     <% if user_signed_in? %>
-      <div class="menu">トークルーム</div>
+      <div class="menu">
+        <%= link_to "トークルーム", rooms_path %>
+      </div>
       <div class="menu">
         <%= link_to("マイページ", "/users/#{current_user.id}") %>
       </div>
