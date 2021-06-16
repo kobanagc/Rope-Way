@@ -53,11 +53,16 @@
     <% end %>
     <%= @likes_count %>
   </div>
-  <div class="profile-edit-destroy">
-    <% if current_user.id == @user.id %>
+  <% if current_user.id == @user.id %>
+    <div class="profile-edit-destroy">
       <%= link_to "プロフィール編集", edit_user_path %>
       <%= link_to "アカウント削除", user_path(@user.id), method: :delete, data: { confirm: '本当にアカウントを削除しますか？' } %>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
+  <% if Like.find_by(by_user_id: current_user.id, to_user_id:@user.id) && Like.find_by(by_user_id: @user.id, to_user_id: current_user.id) %>
+    <div class="to-talkroom">
+      トークルームへ
+    </div>
+  <% end %>
 </div>
 <%= render "shared/footer" %>
