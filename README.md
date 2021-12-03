@@ -1,40 +1,35 @@
-# アプリ名
+# Application
 RopeWay
 
-# 概要
-ヒモとパトロンのマッチングアプリ
+# Outline
+Matching App between a patron and people who financially depends on others 
 
 # URL
-https:
+http:
 
-# テスト用アカウント
-### Basic認証
+# Test 
+### Basic Authentication
 - ID:kbno
 - pass:8878 
-### テストアカウント
+### Account for test
 - ID:sample@sample.com
 - pass:sample
 
-# 利用方法
-1. ユーザー登録
-2. 他ユーザーのプロフィールを閲覧
-3. 気になったユーザーにいいねをつける
-4. お互いがいいねをつけたらトークルームが作成できる
-5. トークルーム内でさらにお互いのことを知る
+# How to use
+1. Register user
+2. View other user profiles
+3. Like a profile of other people who you like 
+4. Exchange messages if you like each other
 
-# 目指した課題解決
-既存のマッチングアプリではなかなか言い出しづらい、「将来の関係性」についてのミスマッチを改善するために作成。
-「趣味友」「飲み友」「恋人」など様々な関係がある中でも「ヒモとパトロン」という関係に特化したマッチングサービス。
+# Requirements
+- User management
+- Like 
+- Message
+- Search
+- Tag
 
-# 要件
-- ユーザー管理
-- いいね
-- トークルーム
-- 検索
-- タグ
-
-# データベース設計
-### users テーブル
+# Database design
+### users table
 | Column             | Type    | Options                   |
 | ------------------ | ------- | ------------------------- |
 | name               | string  | null: false               |
@@ -42,7 +37,7 @@ https:
 | encrypted_password | string  | null: false               |
 | phone              | string  | null: false, unique: true | 
 | self_pr            | text    |                           |
-| sex                | integer | null: false               |
+| sex_id             | integer | null: false               |
 | age                | integer | null: false               |
 | residence_id       | integer | null: false               |
 | rope_patron_id     | integer | null: false               |
@@ -53,7 +48,7 @@ https:
 - has_many :messages
 
 
-### likes テーブル
+### likes table
 | Column     | Type       | Options                        |
 | ---------- | ---------- | ------------------------------ |
 | by_user_id | references | null: false, foreign_key: true |
@@ -61,7 +56,7 @@ https:
 #### Association
 - belongs_to :user
 
-### rooms テーブル
+### rooms table
 | Column | Type | Options |
 | ------ | ---- | ------- |
 |        |      |         |
@@ -69,7 +64,7 @@ https:
 - has_many :users, through: room_users
 - has_many :room_users
 
-### room_users テーブル
+### room_users table
 | Column | Type       | Options                        |
 | ------ | ---------- | ------------------------------ |
 | user   | references | null: false, foreign_key: true |
@@ -78,7 +73,7 @@ https:
 - belongs_to :room
 - belongs_to :user
 
-### messages テーブル
+### messages table
 | Column  | Type       | Options                        |
 | ------- | ---------- | ------------------------------ |
 | content | string     |                                |
@@ -88,18 +83,13 @@ https:
 - belongs_to :room
 - belongs_to :user
 
-# ローカルでの動作方法
-1. コマンドでbundle installを実行し、gemのインストール
-2. rails db:create
-3. rails db:migrate
-4. rails s
-
-### パッケージ
+### Packages
 - devise
 - pry-rails
 - mini_magick
 - image_processing '~> 1.2'
 - active_hash
+- Tailwind css
 
-### バージョン
+### Version
 - rails '~> 6.0.0'
