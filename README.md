@@ -49,10 +49,11 @@ http:
 
 
 ### likes table
-| Column     | Type       | Options                        |
-| ---------- | ---------- | ------------------------------ |
-| by_user_id | references | null: false, foreign_key: true |
-| to_user_id | references | null: false, foreign_key: true |
+| Column       | Type       | Options                        |
+| ------------ | ---------- | ------------------------------ |
+| to_user_id   | references | null: false, foreign_key: true |
+| from_user_id | references | null: false, foreign_key: true |
+| status       | integer    | null: false                    |
 #### Association
 - belongs_to :user
 
@@ -65,20 +66,20 @@ http:
 - has_many :room_users
 
 ### room_users table
-| Column | Type       | Options                        |
-| ------ | ---------- | ------------------------------ |
-| user   | references | null: false, foreign_key: true |
-| room   | references | null: false, foreign_key: true |
+| Column    | Type       | Options                        |
+| --------- | ---------- | ------------------------------ |
+| user_id   | references | null: false, foreign_key: true |
+| room_id   | references | null: false, foreign_key: true |
 #### Association
 - belongs_to :room
 - belongs_to :user
 
 ### messages table
-| Column  | Type       | Options                        |
-| ------- | ---------- | ------------------------------ |
-| content | string     |                                |
-| user    | references | null: false, foreign_key: true |
-| room    | references | null: false, foreign_key: true |
+| Column     | Type       | Options                        |
+| ---------- | ---------- | ------------------------------ |
+| content    | string     |                                |
+| user_id    | references | null: false, foreign_key: true |
+| room_id    | references | null: false, foreign_key: true |
 #### Association
 - belongs_to :room
 - belongs_to :user
@@ -89,7 +90,6 @@ http:
 - mini_magick
 - image_processing '~> 1.2'
 - active_hash
-- Tailwind css
 
 ### Version
 - rails '~> 6.0.0'
