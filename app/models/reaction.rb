@@ -1,6 +1,6 @@
-class Like < ApplicationRecord
+class Reaciton < ApplicationRecord
   with_options presence: true do
-    validates :by_user_id
+    validates :from_user_id
     validates :to_user_id
   end
 end

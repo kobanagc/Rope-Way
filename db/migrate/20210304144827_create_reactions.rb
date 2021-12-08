@@ -1,6 +1,6 @@
-class CreateLikes < ActiveRecord::Migration[6.0]
+class CreateReactions < ActiveRecord::Migration[6.0]
   def change
-    create_table :likes do |t|
+    create_table :reactions do |t|
       t.integer :to_user_id
       t.integer :from_user_id
       t.integer :status
