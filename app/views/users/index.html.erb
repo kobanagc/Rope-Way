@@ -25,9 +25,6 @@
           <div class="user-age">
             年齢：<%= user.age %>歳
           </div>
-          <div class="user-likes">
-            <span class="fa fa-heart like-btn-unlike"></span>：<%= Like.where(to_user_id: user.id).count %>
-          </div>
         </div>
       </div>
     <% end %>
