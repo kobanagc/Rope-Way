@@ -5,7 +5,7 @@ RopeWay
 Matching App between a patron and people who financially depends on others 
 
 # URL
-http:
+http
 
 # Test 
 ### Basic Authentication
