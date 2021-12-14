@@ -35,12 +35,19 @@
   margin: 10px auto 0;
   height: 200px;
   width: 500px;
-  background: #c6e4ff;
   border: black solid 1px;
   border-bottom: solid 6px #aac5de;
   border-radius: 9px;
   float: center;
   display: flex;
+}
+
+.male{
+  background: #c6e4ff;
+}
+
+.female{
+  background: pink;
 }
 
 .profile-image{
