@@ -1,6 +1,5 @@
 class Reaciton < ApplicationRecord
-  with_options presence: true do
-    validates :from_user_id
-    validates :to_user_id
-  end
+  belongs_to :to_user, class_name: "User"
+  belongs_to :from_user, class_name: "User"
+  # enum status: { like: 0, dislike: 1 }
 end
