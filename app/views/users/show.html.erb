@@ -44,6 +44,11 @@
       <%= link_to "プロフィール編集", edit_user_path %>
       <%= link_to "アカウント削除", user_path(@user.id), method: :delete, data: { confirm: '本当にアカウントを削除しますか？' } %>
     </div>
+  <% else %>
+    <div class="like-nope">
+      <%= link_to "Like" %>
+      <%= link_to "Nope" %>
+    </div>
   <% end %>
   
 </div>
