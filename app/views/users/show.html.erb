@@ -46,8 +46,8 @@
     </div>
   <% else %>
     <div class="like-nope">
-      <%= link_to "Like" %>
-      <%= link_to "Nope" %>
+      <%= button_to("like", "/users/reactions/#{@user.id}", method: :post, params: {status: 1}) %>
+      <%= button_to("nope", "/users/reactions/#{@user.id}", method: :post, params: {status: 2}) %>
     </div>
   <% end %>
   
