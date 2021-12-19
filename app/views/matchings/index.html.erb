@@ -1,0 +1,35 @@
+<%= render "shared/header" %>
+<div class="matchingNum"><%= @match_users.size %>人とマッチングしています</div>
+<h2 class="pageTitle">マッチングした人一覧</h2>
+<div class="main-contents">
+  <% @match_users.each do |user| %>
+    <%= link_to "/users/#{user.id}", class: "user-profile-link" do %>
+      <% if user.sex_id == 2 %>
+      <div class="user-profiles male">
+      <% else %>
+      <div class="user-profiles female">
+      <% end %>
+        <div class="profile-image">
+          <% if user.image.attached? %>
+            <%= image_tag user.image, class: "icon-img" %>
+          <% else %>
+            <%= image_tag "default-image.png", class: "icon-img" %>
+          <% end %>
+        </div>
+        <div class="profile-details">
+          <div class="user-name">
+            名前：<%= user.name %>
+          </div>
+          <div class="user-sex">
+            性別：<%= user.sex.name %>
+          </div>
+          <div class="user-age">
+            年齢：<%= user.age %>歳
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+
+<%= render "shared/footer" %>
