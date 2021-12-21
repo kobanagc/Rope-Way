@@ -5,7 +5,7 @@
     </h2>
 </div>
 <div class="main-contents">
-  <% User.where.not(id: current_user.id).each do |user| %>
+  <% User.where.not(rope_patron_id: current_user.rope_patron_id).each do |user| %>
     <%= link_to "/users/#{user.id}", class: "user-profile-link" do %>
       <% if user.sex_id == 2 %>
       <div class="user-profiles male">
