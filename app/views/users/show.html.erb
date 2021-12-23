@@ -1,6 +1,6 @@
 <%= render "shared/header" %>
 <div class="profile-details-main">
-  <div class="profile-images">
+  <div class="profile-images" id="images">
     <div class="profile-img">
       <% if @user.image.attached? %>
         <%= image_tag @user.image, class: "item-img" %>
