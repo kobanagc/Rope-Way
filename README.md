@@ -1,5 +1,5 @@
 # Application
-RopeWay
+Rope-Way
 
 # Outline
 Matching App between a patron and people who financially depends on others 
