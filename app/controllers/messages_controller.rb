@@ -1,5 +1,6 @@
 class MessagesController < ApplicationController
   before_action: current_user_rooms only: [:index, :create]
+  
   def index
     @message = Message.new
     @room = Room.find(params[:room_id])

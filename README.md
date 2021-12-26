@@ -48,7 +48,7 @@ http
 - has_many :messages
 
 
-### likes table
+### reactions table
 | Column       | Type       | Options                        |
 | ------------ | ---------- | ------------------------------ |
 | to_user_id   | references | null: false, foreign_key: true |
@@ -64,6 +64,7 @@ http
 #### Association
 - has_many :users, through: room_users
 - has_many :room_users
+- has_many :messages
 
 ### room_users table
 | Column    | Type       | Options                        |
