@@ -1,5 +1,5 @@
 class MessagesController < ApplicationController
-  before_action: current_user_rooms only: [:index, :create]
+  before_action :current_user_rooms
   
   def index
     @message = Message.new
