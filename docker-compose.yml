@@ -2,7 +2,7 @@ version: '3'
 services:
   # database.yml の host で指定した名前と一致させること
   db:
-    image: mysql:5.5.8
+    image: mysql:5
     volumes:
       # dbコンテナが停止しても、データを保持するようにする
       - ./tmp/volumes/db:/var/lib/mysql
